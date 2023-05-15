@@ -1,0 +1,288 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    min-height: 100%;
+    height: 100%;
+    background-color: #f4fad2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #c73535;
+    color: #f4fad2;
+}
+
+.nav-links a {
+    color: #f4fad2;
+}
+
+.menu {
+    display: flex;
+    gap: 1rem;
+    font-size: 15px;
+}
+
+.menu li:hover {
+    background-color: #9b2828;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.menu li {
+    padding: 5px 14px;
+}
+
+.dropdown {
+    background-color: rgb(1, 139, 139);
+    padding: 1em 0;
+    position: absolute;
+    /*COM RELAÇÃO AOS PAIS*/
+    display: none;
+    border-radius: 8px;
+    top: 35px;
+}
+
+
+.dropdown li {
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+}
+
+.dropdown li:hover {
+    background-color: #4c9e9e;
+}
+
+.container {
+    height: 80%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.container button {
+    background-color: #c73535;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 1rem;
+    width: 80px;
+    height: 30px;
+    transition: 0.4s;
+}
+
+.container button:hover {
+    background-color: #9b2828;
+}
+
+.container form {
+    margin-left: 200px;
+    flex-direction: column;
+    display: flex;
+}
+
+
+.ml-50 {
+    margin-left: 200px;
+}
+
+.imagem {
+    height: 22rem;
+    width: 20rem;
+}
+
+
+/*LOGIN*/
+.area-login {
+    display: flex;
+    height: 85vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #c73535;
+    width: 360px;
+    height: 320;
+    padding: 35px;
+    border-radius: 6px;
+}
+
+.login form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login input {
+    margin-top: 10px;
+    background-color: #9b2828;
+    color: #CBD0F7;
+    padding-left: 10px;
+    border: none;
+    height: 45px;
+    outline: none;
+    border-radius: 6px;
+}
+
+input::placeholder {
+    color: #CBD0F7;
+}
+
+.login input[type=submit] {
+    display: block;
+    background-color: #9b2828;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login input[type=submit]:hover {
+    background-color: #f4fad2;
+    color: #9b2828;
+}
+
+.login h1 {
+    color: #f4fad2;
+}
+
+.login p {
+    margin-top: 10px;
+    color: #CBD0F7;
+}
+
+.login a {
+    text-decoration: none;
+    color: #f4fad2;
+}
+
+/*RODAPÉ*/
+.footer {
+    margin: auto;
+    bottom: 0;
+    background-color: #fff;
+    padding: 15px;
+}
+
+.footer h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.footer h2 span {
+    display: block;
+    margin-top: 10px;
+}
+
+.footer h2 span i {
+    margin: 0 15px;
+}
+
+.footer img {
+    width: 25px;
+}
+
+.footer-2 {
+    margin: auto;
+    min-height: 55px;
+    background: #000;
+    font-size: 15px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+/* NAVBAR MENU RESPONSIVA*/
+/* CHECKBOX HACK */
+input[type=checkbox] {
+    display: none;
+}
+
+/*HAMBURGER MENU*/
+.hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+}
+
+/* APLICAÇÃO MEDIA QUERIES */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        position: absolute;
+        background-color: teal;
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 16px 0;
+    }
+
+    .menu li:hover {
+        display: inline-block;
+        background-color: #4c9e9e;
+        transition: 0.3s ease;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .dropdown {
+        left: 50%;
+        top: 30px;
+        transform: translateX(35%);
+    }
+
+    .dropdown li:hover {
+        background-color: #4c9e9e;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navbar {
+        font-size: 60%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .footer {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .footer-2 {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+    }
+}
