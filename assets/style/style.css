@@ -177,6 +177,31 @@ input::placeholder {
     color: #CBD0F7;
 }
 
+.login input[type=checkbox] {
+    color: #ccc;
+    cursor: pointer;
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+/* .login input[type=checkbox] {
+    margin-left: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 1px solid #CBD0F7;
+    background-color: #9b2828;
+    cursor: pointer;
+}
+
+.login input[type="checkbox"]:checked {
+    background-color: #f4fad2;
+} */
+
 .login a {
     text-decoration: none;
     color: #f4fad2;
@@ -221,9 +246,6 @@ input::placeholder {
 
 /* NAVBAR MENU RESPONSIVA*/
 /* CHECKBOX HACK */
-input[type=checkbox] {
-    display: none;
-}
 
 /*HAMBURGER MENU*/
 .hamburger {
