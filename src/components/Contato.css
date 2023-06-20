@@ -1,0 +1,81 @@
+.area-contato {
+    display: flex;
+    height: 85vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #c73535;
+    width: 560px;
+    height: 400px;
+    padding: 35px;
+    border-radius: 6px;
+}
+
+.contato form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contato input {
+    margin-top: 10px;
+    background-color: #9b2828;
+    color: #CBD0F7;
+    padding-left: 10px;
+    border: none;
+    height: 45px;
+    outline: none;
+    border-radius: 6px;
+}
+
+input::placeholder {
+    color: #CBD0F7;
+}
+
+.contato input[type=submit] {
+    display: block;
+    background-color: #9b2828;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.contato input[type=submit]:hover {
+    background-color: #f4fad2;
+    color: #9b2828;
+}
+
+.comentario {
+    padding: 50px;
+}
+
+
+h1 {
+    color: #c73535;
+}
+
+.contato p {
+    margin-top: 10px;
+    color: #CBD0F7;
+}
+
+.contato input[type=checkbox] {
+    color: #ccc;
+    cursor: pointer;
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+
+.contato a {
+    text-decoration: none;
+    color: #f4fad2;
+}

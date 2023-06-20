@@ -1,0 +1,20 @@
+.linha-horizontal {
+    display: flex;
+    width: 100%;
+    /* Ajuste a altura da linha conforme necessário */
+    background-color: #000;
+    border-width: 20px;
+    /* Ajuste a cor da linha conforme necessário */
+}
+
+.linha-horizontal input {
+    width: 100%;
+}
+
+.textArea input {
+    margin-bottom: 20px;
+}
+
+.textArea textarea::placeholder {
+    color: #b8b3b3;
+}
