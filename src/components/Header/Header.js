@@ -37,7 +37,7 @@ const Header = () => {
 
             <div className="pesquisa">
                 <input type="search" id="pesquisa" placeholder="Pesquise um homenageado..." />
-                <p><NavLink to="/login" id="login" >login</NavLink></p>
+                <p><NavLink to="/login" id="login" >logoff</NavLink></p>
             </div>
         </nav>
     )

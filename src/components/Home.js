@@ -20,7 +20,7 @@ const Home = () => {
                     <input type="submit" value="Cadastrar" />
                 </div>
             </form>
-            <h1>Home</h1>
+            <center><h1>Home</h1></center>
             <div>
                 {<HomePost posts={postsCtx.posts} />}
             </div>

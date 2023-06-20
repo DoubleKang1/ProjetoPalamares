@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Cadastro from './components/Cadastro';
 import Contato from './components/Contato';
+import Favoritos from './components/Favoritos';
 import Home from './components/Home';
 import Login from './components/Login';
 
@@ -14,6 +15,7 @@ const SysRoutes = () => {
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/favoritos" element={<Favoritos />} />
         </Routes>
     )
 }
