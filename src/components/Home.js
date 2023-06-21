@@ -14,6 +14,7 @@ const Home = () => {
                     <input type="text" name="name" placeholder='Nome do homenageado' />
                     <input type="text" name="imageUrl" placeholder='Link da foto' />
                     <input type="date" name="date" placeholder='Data de nascimento' />
+                    <input type="date" name="dateDeath" placeholder='Data de falecimento' />
                 </div>
                 <div className='textArea'>
                     <textarea rows="5" cols="60" name="bio" placeholder='Biografia'>asasa</textarea>

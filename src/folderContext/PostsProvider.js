@@ -38,13 +38,14 @@ const PostsProvider = (props) => {
 
     const onPostSubmit = async (event) => {
         event.preventDefault();
-        if (event.target.name.value.length > 30) {
+        if (event.target.name.value.length > 100 || event.target.name.value.length < 1) {
             console.log('No No')
         } else {
             const newPost = {
                 name: event.target.name.value,
                 imageUrl: event.target.imageUrl.value,
                 date: event.target.date.value,
+                dateDeath: event.target.dateDeath.value,
                 bio: event.target.bio.value,
             };
             try {

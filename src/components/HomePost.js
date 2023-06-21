@@ -3,9 +3,6 @@ import './HomePost.css';
 
 const HomePost = (props) => {
 
-    console.log('asdasdsadsad', props.posts)
-    console.log('asdasdsadsad', props.imageURL)
-
 
     return (
         <div>
@@ -16,7 +13,7 @@ const HomePost = (props) => {
                             <div className="card">
                                 <h2>{post.name}</h2>
                                 <img src={post.imageUrl} alt="Imagem da postagem" className="post-image" />
-                                <h3 className="subtitle">{post.date}</h3>
+                                <h3 className="subtitle">{post.date} | {post.dateDeath} </h3>
                                 <p className="bio">{post.bio}</p>
                             </div>
                         </div>
