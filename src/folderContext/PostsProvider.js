@@ -38,17 +38,21 @@ const PostsProvider = (props) => {
 
     const onPostSubmit = async (event) => {
         event.preventDefault();
-        const newPost = {
-            name: event.target.name.value,
-            imageUrl: event.target.imageUrl.value,
-            date: event.target.date.value,
-            bio: event.target.bio.value,
-        };
-        try {
-            const docRef = await addDoc(collection(db, 'posts'), newPost);
-            fetchPosts();
-        } catch (error) {
-            console.error('Error fetching collection: ', error);
+        if (event.target.name.value.length > 30) {
+            console.log('No No')
+        } else {
+            const newPost = {
+                name: event.target.name.value,
+                imageUrl: event.target.imageUrl.value,
+                date: event.target.date.value,
+                bio: event.target.bio.value,
+            };
+            try {
+                const docRef = await addDoc(collection(db, 'posts'), newPost);
+                fetchPosts();
+            } catch (error) {
+                console.error('Error fetching collection: ', error);
+            }
         }
     };
 
