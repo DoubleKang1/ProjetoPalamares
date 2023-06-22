@@ -7,6 +7,7 @@ import Login from './components/Login';
 import SysRoutes from './SysRoutes';
 import UsersProvider from './folderContext/UsersProvider';
 import PostsProvider from './folderContext/PostsProvider';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
       <BrowserRouter>
         <UsersProvider>
           <PostsProvider>
-          <Header />
-          <SysRoutes />
+            <Header />
+            <SysRoutes />
+            <Footer />
           </PostsProvider>
         </UsersProvider>
       </BrowserRouter>
