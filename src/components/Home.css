@@ -18,3 +18,28 @@
 .textArea textarea::placeholder {
     color: #b8b3b3;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 3px;
+    border-radius: 2.5px;
+    border: none;
+    display: block;
+    color: #9b2828;
+    background-color: #c73535;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9b2828;
+    color: #c73535;
+}
