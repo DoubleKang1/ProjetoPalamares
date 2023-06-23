@@ -16,18 +16,18 @@ const Home = () => {
             <span className='center'>
                 <button onClick={toggleForm}>Cadastrar post</button></span>
             {isExpanded && (
-                <form onSubmit={postsCtx.onPostSubmit}>
-                    <div className="linha-horizontal">
-                        <input type="text" name="name" placeholder='Nome do homenageado' />
-                        <input type="text" name="imageUrl" placeholder='Link da foto' />
-                        <input type="date" name="date" placeholder='Data de nascimento' />
-                        <input type="date" name="dateDeath" placeholder='Data de falecimento' />
+                <section className="area-post">
+                    <div className="post">
+                        <form onSubmit={postsCtx.onPostSubmit}>
+                            <input type="text" name="name" placeholder='Nome do homenageado' />
+                            <input type="text" name="imageUrl" placeholder='Link da foto' />
+                            <input type="date" name="date" placeholder='Data de nascimento' />
+                            <input type="date" name="dateDeath" placeholder='Data de falecimento' />
+                            <textarea rows="5" cols="60" name="bio" placeholder='Biografia'>asasa</textarea>
+                            <input type="submit" value="Cadastrar" />
+                        </form>
                     </div>
-                    <div className='textArea'>
-                        <textarea rows="5" cols="60" name="bio" placeholder='Biografia'>asasa</textarea>
-                        <input type="submit" value="Cadastrar" />
-                    </div>
-                </form>
+                </section>
             )}
 
             <center><h1>Home</h1></center>
