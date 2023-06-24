@@ -1,19 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaHeart } from 'react-icons/fa';
 import './HomePost.css';
 import { useState } from 'react';
+import { PostContext } from '../folderContext/PostsProvider';
 
 const HomePost = (props) => {
 
 
     const [likedPosts, setLikedPosts] = useState([]);
+    const postsCtx = useContext(PostContext);
 
     // Função para alternar o estado do coração
     const toggleLike = (postId) => {
         if (likedPosts.includes(postId)) {
             setLikedPosts(likedPosts.filter((id) => id !== postId));
+            postsCtx.removeFavorite(postId);
         } else {
             setLikedPosts([...likedPosts, postId]);
+            postsCtx.addFavorite(postId);
         }
     };
 

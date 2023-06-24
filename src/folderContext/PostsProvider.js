@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
     collection,
     addDoc,
@@ -12,12 +12,16 @@ import {
     where,
 } from 'firebase/firestore';
 import { db } from '../FirebaseConfig';
+import { UsersContext } from './UsersProvider';
+
+
 
 export const PostContext = React.createContext();
 
 const PostsProvider = (props) => {
     const [posts, setPosts] = useState([]);
-    const [favorites, setFavorites] = useState([]);
+    const [favorites, setFavoritesPosts] = useState([]);
+    const { userId } = useContext(UsersContext);
 
     const fetchPosts = async () => {
         const postsAux = [];
@@ -34,7 +38,24 @@ const PostsProvider = (props) => {
 
     useEffect(() => {
         fetchPosts();
-    }, []);
+        if (userId) {
+            loadUserFavorites();
+        }
+    }, [userId]);
+
+    const loadUserFavorites = async () => {
+        try {
+            const userRef = doc(db, 'users', userId);
+            const userDoc = await getDoc(userRef);
+
+            if (userDoc.exists()) {
+                const userFavoritesData = userDoc.data().favorites;
+                setFavoritesPosts(userFavoritesData);
+            }
+        } catch (error) {
+            console.error('Erro ao carregar os favoritos do usuário: ', error);
+        }
+    };
 
     const onPostSubmit = async (event) => {
         event.preventDefault();
@@ -75,17 +96,53 @@ const PostsProvider = (props) => {
         }
     };
 
-    const addFavorite = (postId) => {
-        setFavorites((prevFavorites) => [...prevFavorites, postId]);
+    const addFavorite = async (postId) => {
+        setFavoritesPosts((prevFavorites) => [...prevFavorites, postId]);
+
+        try {
+            const userRef = doc(db, 'users', userId);
+            const userDoc = await getDoc(userRef);
+
+            if (userDoc.exists()) {
+                // Atualiza a lista de favoritos do usuário
+                await setDoc(
+                    userRef,
+                    { favorites: [...userDoc.data().favorites, postId] },
+                    { merge: true }
+                );
+            } else {
+                // Cria um novo documento para o usuário com o post favoritado
+                await setDoc(userRef, { favorites: [postId] });
+            }
+        } catch (error) {
+            console.error('Erro ao adicionar o post aos favoritos: ', error);
+        }
     };
 
-    const removeFavorite = (postId) => {
-        setFavorites((prevFavorites) => prevFavorites.filter((id) => id !== postId));
+    const removeFavorite = async (postId) => {
+        setFavoritesPosts((prevFavorites) => prevFavorites.filter((id) => id !== postId));
+
+        try {
+            const userRef = doc(db, 'users', userId); // Acessa o documento do usuário logado
+            const userDoc = await getDoc(userRef);
+
+            if (userDoc.exists()) {
+                const updatedFavorites = userDoc.data().favorites.filter(
+                    (id) => id !== postId
+                );
+
+                // Atualiza a lista de favoritos do usuário
+                await updateDoc(userRef, { favorites: updatedFavorites });
+            }
+        } catch (error) {
+            console.error('Erro ao remover o post dos favoritos: ', error);
+        }
     };
 
     return (
         <PostContext.Provider
             value={{
+                userId: userId,
                 posts: posts,
                 favorites: favorites,
                 onPostSubmit: onPostSubmit,

@@ -8,6 +8,7 @@ export const UsersContext = React.createContext();
 const UsersProvider = (props) => {
     const [autenticado, setAutenticado] = useState(false);
     const [senhaInvalida, setSenhaInvalida] = useState(false);
+    const [userId, setUserId] = useState(null);
     const navigate = useNavigate();
 
 
@@ -17,15 +18,13 @@ const UsersProvider = (props) => {
         const password = event.target.password.value;
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in
                 const user = userCredential.user;
                 console.log('Usuário logado com sucesso', user);
                 setAutenticado(true);
+                setUserId(user.uid);
                 navigate("/home");
             })
             .catch((error) => {
-                // const errorCode = error.code;
-                // const errorMessage = error.message;
                 console.log('Problemas ao logar usuário', error);
                 setAutenticado(false);
 
@@ -44,6 +43,8 @@ const UsersProvider = (props) => {
             createUserWithEmailAndPassword(auth, email, password)
                 .then(function () {
                     console.log('Criou!');
+                    navigate("/login");
+                    alert('Usuário cadastrado com sucesso!')
                 })
                 .catch(function (error) {
                     console.log('Não foi')
@@ -55,7 +56,7 @@ const UsersProvider = (props) => {
     }
 
     return (
-        <UsersContext.Provider value={{ autenticado: autenticado, authUser: authUser, createUser: createUser }}>
+        <UsersContext.Provider value={{ autenticado: autenticado, authUser: authUser, createUser: createUser, userId: userId }}>
             {props.children}
         </UsersContext.Provider>
     )
