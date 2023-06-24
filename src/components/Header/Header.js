@@ -1,25 +1,16 @@
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import './Header.css';
 import { UsersContext } from '../../folderContext/UsersProvider';
 import { useContext } from 'react';
 
 const Header = () => {
-
-    const { autenticado } = useContext(UsersContext)
-
-    let ul = document.querySelector('nav ul');
-    let menuBtn = document.querySelector('.menu-btn i');
-
-    function menuShow() {
-        if (ul.classList.contains('open')) {
-            ul.classList.remove('open');
-        } else {
-            ul.classList.add('open');
-        }
-    }
+    const [searchValue, setSearchValue] = useState('');
+    const { autenticado } = useContext(UsersContext);
+    const { disconnect } = useContext(UsersContext);
 
     if (!autenticado) {
-        return;
+        return null; // Retorna nulo se o usuário não estiver autenticado
     }
 
     return (
@@ -31,14 +22,22 @@ const Header = () => {
                 </li>
             </ul>
 
-            <div className=" menu-btn">
-                <i className="fa fa-bars fa-2x" onClick=" menuShow()"></i>
+            <div className="pesquisa">
+                <input
+                    type="search"
+                    id="pesquisa"
+                    placeholder="Pesquise um homenageado..."
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                />
+                <Link to={`/pesquisa?name=${searchValue}`} className="pesquisa_link"><button>Pesquisar</button></Link>
+
+                <div className='logoff'>
+                    <p><NavLink to="/" id="logoff" onClick={disconnect}>Logoff</NavLink></p>
+                </div>
             </div>
 
-            <div className="pesquisa">
-                <input type="search" id="pesquisa" placeholder="Pesquise um homenageado..." />
-                <p><NavLink to="/login" id="login" >logoff</NavLink></p>
-            </div>
+
         </nav>
     )
 }

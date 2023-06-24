@@ -5,9 +5,9 @@ import Contato from './components/Contato';
 import Favoritos from './components/Favoritos';
 import Home from './components/Home';
 import Login from './components/Login';
+import Pesquisa from './components/Pesquisa'; // Importe o componente Pesquisa
 
 const SysRoutes = () => {
-
     return (
         <Routes>
             <Route path="/" element={<Login />} />
@@ -16,6 +16,7 @@ const SysRoutes = () => {
             <Route path="/contato" element={<Contato />} />
             <Route path="/home" element={<Home />} />
             <Route path="/favoritos" element={<Favoritos />} />
+            <Route path="/pesquisa" element={<Pesquisa />} />
         </Routes>
     )
 }

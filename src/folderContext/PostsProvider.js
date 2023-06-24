@@ -78,24 +78,6 @@ const PostsProvider = (props) => {
         }
     };
 
-
-    const searchPostsByName = async (name) => {
-        const postsRef = collection(db, 'posts');
-        const q = query(postsRef, where('name', '==', name));
-
-        try {
-            const querySnapshot = await getDocs(q);
-            const posts = [];
-            querySnapshot.forEach((doc) => {
-                posts.push({ id: doc.id, ...doc.data() });
-            });
-            return posts;
-        } catch (error) {
-            console.error('Error searching posts by name:', error);
-            return [];
-        }
-    };
-
     const addFavorite = async (postId) => {
         setFavoritesPosts((prevFavorites) => [...prevFavorites, postId]);
 

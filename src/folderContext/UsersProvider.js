@@ -55,8 +55,15 @@ const UsersProvider = (props) => {
         }
     }
 
+    const disconnect = (event) => {
+        event.preventDefault();
+        setAutenticado(false);
+        setUserId(null);
+        navigate("/login");
+    }
+
     return (
-        <UsersContext.Provider value={{ autenticado: autenticado, authUser: authUser, createUser: createUser, userId: userId }}>
+        <UsersContext.Provider value={{ autenticado: autenticado, authUser: authUser, createUser: createUser, userId: userId, disconnect: disconnect }}>
             {props.children}
         </UsersContext.Provider>
     )
