@@ -45,7 +45,10 @@ const Pesquisa = () => {
                         ))}
                     </ul>
                 ) : (
-                    <p>Nenhum resultado encontrado.</p>
+                    <div className='void'>
+                        <p>Nenhum resultado encontrado.</p>
+                    </div>
+
                 )}
             </div>
         </div>
