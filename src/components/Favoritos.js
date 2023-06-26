@@ -25,7 +25,7 @@ const Favoritos = () => {
 
     return (
         <div>
-            <h1>Favoritos</h1>
+            <span className='center'><h1>Favoritos</h1></span>
             {
                 favoritePosts.map((post) => {
 
@@ -45,11 +45,14 @@ const Favoritos = () => {
                                     <p className="bio">{post.bio}</p>
                                 </div>
                             </div>
+
                         </div>
+
                     )
                 }
 
                 )}
+            <div className='void'></div>
         </div>
     );
 };
